@@ -1,0 +1,243 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vermelho: #ef4444;
+    --vermelho-escuro: #dc2626;
+    --fundo: #101114;
+    --card: #1b1c22;
+    --texto: #f5f5f5;
+    --texto-secundario: #a1a1aa;
+    --borda: #30313a;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background:
+        radial-gradient(ellipse at top, #3a151b 0%, transparent 55%),
+        var(--fundo);
+}
+
+/* Container principal */
+main {
+    width: 100%;
+    max-width: 430px;
+    padding: 32px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px #00000050;
+}
+
+/* Cabeçalho */
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.4rem;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+h1::before {
+    content: "● ";
+    color: var(--vermelho);
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+main > p {
+    color: var(--texto-secundario);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    gap: 8px;
+    margin-top: 26px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    color: var(--texto);
+    background: #111217;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px #ef444425;
+}
+
+button {
+    padding: 0 17px;
+    color: white;
+    background: var(--vermelho);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--vermelho-escuro);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Mensagens */
+#mensagem {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: #fca5a5;
+}
+
+/* Resultado */
+#resultado {
+    margin-top: 22px;
+    padding: 22px;
+    text-align: center;
+    background: #131419;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    animation: aparecer 0.3s ease;
+}
+
+#resultado[hidden] {
+    display: none;
+}
+
+#imagem {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+    image-rendering: pixelated;
+    background: radial-gradient(circle, #3b2025 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+h2 {
+    margin-bottom: 14px;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+}
+
+#resultado p {
+    margin-top: 9px;
+    padding: 10px;
+    color: #d4d4d8;
+    background: #202127;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* Animação */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    main {
+        padding: 24px 18px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        min-height: 46px;
+    }
+}
+
+/* Acessibilidade: respeita preferência por menos animações */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Etiquetas dos tipos */
+#tipo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+#resultado #tipo .tipo-pokemon {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    background: #555;
+    border: 1px solid #ffffff25;
+}
+
+/* Cores oficiais inspiradas nos tipos Pokémon */
+.tipo-normal   { background-color: #A8A77A !important; }
+.tipo-fire     { background-color: #EE8130 !important; }
+.tipo-water    { background-color: #6390F0 !important; }
+.tipo-electric { background-color: #F7D02C !important; color: #222 !important; }
+.tipo-grass    { background-color: #7AC74C !important; }
+.tipo-ice      { background-color: #96D9D6 !important; color: #222 !important; }
+.tipo-fighting { background-color: #C22E28 !important; }
+.tipo-poison   { background-color: #A33EA1 !important; }
+.tipo-ground   { background-color: #E2BF65 !important; color: #222 !important; }
+.tipo-flying   { background-color: #A98FF3 !important; }
+.tipo-psychic  { background-color: #F95587 !important; }
+.tipo-bug      { background-color: #A6B91A !important; }
+.tipo-rock     { background-color: #B6A136 !important; }
+.tipo-ghost    { background-color: #735797 !important; }
+.tipo-dragon   { background-color: #6F35FC !important; }
+.tipo-dark     { background-color: #705746 !important; }
+.tipo-steel    { background-color: #B7B7CE !important; color: #222 !important; }
+.tipo-fairy    { background-color: #D685AD !important; }
+

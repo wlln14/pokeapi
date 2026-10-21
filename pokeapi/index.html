@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Pokédex</h1>
+        <p>Pesquise um Pokémon pelo nome ou número.</p>
+
+        <form id="formulario">
+            <input
+                type="text"
+                id="pokemon"
+                placeholder="Ex.: pikachu ou 25"
+                required
+            >
+            <button type="submit">Buscar</button>
+        </form>
+
+        <p id="mensagem" role="status"></p>
+
+        <section id="resultado" hidden>
+            <img id="imagem" alt="">
+            <h2 id="nome"></h2>
+            <p id="numero"></p>
+            <p id="tipo"></p>
+            <p id="altura"></p>
+            <p id="peso"></p>
+        </section>
+    </main>
+</body>
+</html>
